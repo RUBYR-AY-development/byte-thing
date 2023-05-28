@@ -33,6 +33,9 @@
     <ClCompile Include="compile\bytecode.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="include\_getline.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="test.txt" />
@@ -45,6 +48,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="compile\internal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\_getline.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -15,7 +15,7 @@ INTERNAL unsigned char* _I_txt_to_bytecode(const char* LINE, size_t* iter) {
   while (*LINE != '\0') {
 
     if (strncmp(LINE, "PRINT", 5) == 0) {
-      orig_bytes[*iter] = 0xFF;
+      orig_bytes[*iter] = BYTECODE_PRINT;
       LINE += 5;
     }
     else {

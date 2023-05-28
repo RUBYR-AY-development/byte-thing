@@ -131,6 +131,7 @@
     <ClCompile Include="compile\cleanup_bytes.c" />
     <ClCompile Include="compile\compile.c" />
     <ClCompile Include="compile\print_bins.c" />
+    <ClCompile Include="include\_getline.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="include\vector.c" />
   </ItemGroup>
@@ -141,6 +142,7 @@
     <ClInclude Include="compile\compile.h" />
     <ClInclude Include="compile\internal.h" />
     <ClInclude Include="include\vector.h" />
+    <ClInclude Include="include\_getline.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
