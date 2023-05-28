@@ -27,6 +27,12 @@
     <ClCompile Include="compile\cleanup_bytes.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="compile\print_bins.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="compile\bytecode.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="test.txt" />
