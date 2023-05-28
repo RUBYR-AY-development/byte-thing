@@ -5,7 +5,7 @@
 #include "internal.h"
 
 
-static COMPILE_LINE_RET L_compile_line(const char* LINE) {
+static unsigned char* L_compile_line(const char* LINE) {
   I_txt_to_bytecode(LINE);
 
   // create new markers with those bytes
@@ -15,9 +15,8 @@ static COMPILE_LINE_RET L_compile_line(const char* LINE) {
 
   I_cleanup_bytes(ret);
   I_print_binaries(ret);
-  I_return_line_ret(ret);
 
-  return line_ret;
+  return ret;
 }
 
 API unsigned char* L_compile(const char** LINES_VEC) {
@@ -25,9 +24,9 @@ API unsigned char* L_compile(const char** LINES_VEC) {
   create_vector(unsigned char, binaries);
 
   for (int i = 0; i < vector_size(LINES_VEC); i++) {
-    COMPILE_LINE_RET line_ret = L_compile_line(LINES_VEC[i]);
+    unsigned char* line_ret = L_compile_line(LINES_VEC[i]);
 
-    vector_add(&binaries, unsigned char*, line_ret.bin);
+    vector_add(&binaries, unsigned char*, line_ret);
   }
 }
 
