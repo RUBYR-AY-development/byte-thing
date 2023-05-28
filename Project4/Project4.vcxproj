@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="compile\cleanup_bytes.c" />
     <ClCompile Include="compile\compile.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="include\vector.c" />
@@ -136,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="compile\compile.h" />
+    <ClInclude Include="compile\internal.h" />
     <ClInclude Include="include\vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -2,74 +2,57 @@
 #include <stdlib.h>
 #include <string.h>
 #include "compile.h"
+#include "internal.h"
 
 #define PRINT_BINARIES 1
 
-typedef struct {
-  unsigned char* bin;
-  int size;
-} COMPILE_LINE_RET;
 
 static COMPILE_LINE_RET L_compile_line(const char* LINE) {
   size_t input_len = strlen(LINE);
-  unsigned char* ret = calloc(input_len, sizeof(unsigned char));
+  unsigned char* orig_bytes = calloc(input_len, sizeof(unsigned char));
 
   size_t iter = 0;
 
   while (*LINE != '\0') {
 
     if (strncmp(LINE, "PRINT", 5) == 0) {
-      ret[iter] = 0xFF;
+      orig_bytes[iter] = 0xFF;
       LINE += 5;
     }
     else {
       // Normal character
-      ret[iter] = *LINE;
+      orig_bytes[iter] = *LINE;
       LINE++;
     }
     iter++;
   }
 
-  // remove the 0x00's
-  size_t count = 0;
-  for (int i = 0; i < iter; i++) {
-    if (ret[i] == 0x00) {
-      count++;
-    }
-  }
-  input_len -= count;
-
-  
-  int size_set = input_len;
-
-
-  int in_string = 0;
-  int in_numeric = 0;
+  // create new markers with those bytes
+  create_vector(unsigned char, ret); // the bytecodes returned
 
   for (int i = 0; i < iter; i++) {
-    char CHR = ret[i];
+    unsigned char CHR = orig_bytes[i];
 
     switch (CHR) {
-      case 0xFF:
-        size_set++;
-
+      default:
+        vector_add(&ret, unsigned char, CHR);
         break;
     }
   }
 
-  // final step: reallocation
-  ret = realloc(ret, size_set * sizeof(unsigned char));
+  I_cleanup_bytes(ret);
 
+  // final step: reallocation
 
   if (PRINT_BINARIES) {
-    for (int i = 0; i < iter; i++) {
+    for (int i = 0; i < vector_size(ret); i++) {
       printf("%02X ", ret[i]);
     }
     printf("\n");
   }
 
   // finish return val
-  COMPILE_LINE_RET line_ret = { ret,iter };
+  COMPILE_LINE_RET line_ret = { ret,vector_size(ret)};
   return line_ret;
 }
 

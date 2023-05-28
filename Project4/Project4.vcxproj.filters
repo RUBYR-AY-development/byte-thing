@@ -24,6 +24,9 @@
     <ClCompile Include="compile\compile.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="compile\cleanup_bytes.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="test.txt" />
@@ -33,6 +36,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="compile\compile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="compile\internal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
