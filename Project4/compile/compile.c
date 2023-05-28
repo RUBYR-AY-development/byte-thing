@@ -16,20 +16,23 @@ static unsigned char* L_compile_line(const char* LINE) {
   I_cleanup_bytes(ret);
   I_print_binaries(ret);
 
+  free(orig_bytes);
   return ret;
 }
 
 API unsigned char* L_compile(const char** LINES_VEC) {
   // gather binaries
-  create_vector(unsigned char, binaries);
+  create_vector(unsigned char*, binaries);
 
   for (int i = 0; i < vector_size(LINES_VEC); i++) {
     unsigned char* line_ret = L_compile_line(LINES_VEC[i]);
 
     vector_add(&binaries, unsigned char*, line_ret);
   }
+
+  return binaries;
 }
 
 API void L_compile_cleanup(unsigned char* BINARIES) {
-
+  vector_free(BINARIES);
 }

@@ -34,7 +34,7 @@ INTERNAL unsigned char* _I_txt_to_bytecode(const char* LINE, size_t* iter) {
 * modifies the existing bytecodes to make it more readable
 */
 
-INTERNAL void I_elaborate_bytecode(unsigned char** VEC, unsigned char* orig_bytes, size_t* iter) {
+INTERNAL void I_elaborate_bytecode(bytes_vec* VEC, unsigned char* orig_bytes, size_t* iter) {
   // unsigned char** VEC -- the bytes that this function fills into
   // unsigned char* orig_bytes -- the original bytes that was created by _I_txt_to_bytecode
 
