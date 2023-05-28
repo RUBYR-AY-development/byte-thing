@@ -1,10 +1,10 @@
 // internal definitions for the compiler
 
-#ifndef _INTERNAL_H_
-#define _INTERNAL_H_
+#ifndef _CMP_INTERNAL_H_
+#define _CMP_INTERNAL_H_
 #define INTERNAL extern
 #include "../include/vector.h"
-
+#include "../bytecodes.h"
 
 /*
 * MACROS
@@ -17,16 +17,17 @@
   size_t iter = 0;                                              \
   unsigned char* orig_bytes = _I_txt_to_bytecode(LINE, &iter);
 
-// MACRO CONSTANTS
-
-// bytecodes for special symbols for the compiled version of the code lines (char*)
-#define BYTECODE_PRINT 0xFF
 
 /*
 * DEFINE TYPES
 */
 
 typedef unsigned char* bytes_vec;
+
+typedef struct {
+  int IN_FUNC_CALL;
+  int IN_STRING;
+} BYTECODE_STATE;
 
 
 /*

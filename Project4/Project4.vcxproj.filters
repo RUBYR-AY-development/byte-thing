@@ -36,6 +36,15 @@
     <ClCompile Include="include\_getline.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="vm\vm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vm\execute.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vm\organize_bins.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="test.txt" />
@@ -51,6 +60,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\_getline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vm\vm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vm\internal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bytecodes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

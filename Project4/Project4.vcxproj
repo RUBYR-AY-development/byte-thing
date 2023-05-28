@@ -134,6 +134,9 @@
     <ClCompile Include="include\_getline.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="include\vector.c" />
+    <ClCompile Include="vm\execute.c" />
+    <ClCompile Include="vm\organize_bins.c" />
+    <ClCompile Include="vm\vm.c" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="test.txt" />
@@ -141,8 +144,11 @@
   <ItemGroup>
     <ClInclude Include="compile\compile.h" />
     <ClInclude Include="compile\internal.h" />
+    <ClInclude Include="bytecodes.h" />
     <ClInclude Include="include\vector.h" />
     <ClInclude Include="include\_getline.h" />
+    <ClInclude Include="vm\internal.h" />
+    <ClInclude Include="vm\vm.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

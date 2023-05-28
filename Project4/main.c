@@ -3,6 +3,7 @@
 #include "include/vector.h"
 #include "include/_getline.h"
 #include "compile/compile.h"
+#include "vm/vm.h"
 
 #define READ_FAIL 1
 #define READ_SUCCESS 0
@@ -11,7 +12,6 @@
 int main(int argc, char* argv[]) {
   FILE* test_file = fopen("test.txt", "r");
   create_vector(char*, file_lines);
-
 
   if (test_file != NULL) {
     // read
@@ -31,10 +31,11 @@ int main(int argc, char* argv[]) {
     }
     */
 
-    vector_add(&file_lines, char*, "PRINT \"HELLO WORLD\"");
-    vector_add(&file_lines, char*, "0123456789");
+    vector_add(&file_lines, char*, "PRINT (\"HELLO WORLD\", \"aye\")");
+    //vector_add(&file_lines, char*, "0123456789");
     // compile
-    unsigned char* bins = L_compile(file_lines);
+    unsigned char** bins = L_compile(file_lines);
+    L_bytecode_vm(bins); // start vm
 
     // cleanup
     L_compile_cleanup(bins);
