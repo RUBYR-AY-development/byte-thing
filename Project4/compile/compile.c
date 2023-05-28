@@ -21,12 +21,6 @@ static COMPILE_LINE_RET L_compile_line(const char* LINE) {
 }
 
 API unsigned char* L_compile(const char** LINES_VEC) {
-  size_t total_vec_size = 0;
-  // get size of everything
-  for (int i = 0; i < vector_size(LINES_VEC); i++) {
-    total_vec_size += strlen(LINES_VEC[i]);
-  }
-
   // gather binaries
   create_vector(unsigned char, binaries);
 
